@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile_theme.css">
+    
+    <style>
+        .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown-menu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .dropdown-menu ul li a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+        }
+        .dropdown-menu ul li:hover {
+            background-color: #f0f0f0;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            padding: 10px;
+        }
+        .profile-info-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 200;
+            width: 400px;
+            padding: 20px;
+        }
+        .profile-info-modal input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .profile-info-modal button {
+            padding: 10px 20px;
+            background-color: #b71c1c;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .profile-info-modal button:hover {
+            background-color: #d32f2f;
+        }
+            .avatar-upload {
+            margin-top: 10px;
+        }
+        .avatar-upload label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="menu-button" onclick="toggleMenu()">&#x22EE;</div>
+        <h1>Добро пожаловать в профиль!</h1>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+                <li><a href="city_events.html">События</a></li>
+                <li><a href="index.html">Главная страница</a></li>
+                <li><a href="#" onclick="showProfileSettings()">Настройки профиля</a></li>
+                <li><a href="#" onclick="showProfileInfo()">Информация о профиле</a></li>
+                <li><a href="#logout">Выход из профиля</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="profile-info">
+            <h2>Информация профиля</h2>
+            <p>Здесь будет отображаться основная информация о пользователе.</p>
+        </section>
+
+        <section id="settings">
+            <h2>Настройки профиля</h2>
+            <p>Настройте свой профиль по своему усмотрению.</p>
+        </section>
+    </main>
+
+    <div class="profile-info-modal" id="profileInfoModal">
+        <h2>Информация о профиле</h2>
+        <p>Дата регистрации: 22.10.2024</p>
+        <p>ID профиля: 01abc</p>
+        <button type="button" onclick="closeProfileInfo()">Закрыть</button>
+    </div>
+
+    <div class="profile-info-modal" id="profileSettingsModal">
+        <h2>Настройки профиля</h2>
+        <form>
+            <input type="text" id="firstName" placeholder="Имя">
+            <input type="text" id="lastName" placeholder="Фамилия">
+            <input type="email" id="profileEmail" placeholder="Почта профиля">
+            <input type="tel" id="profilePhone" placeholder="Номер телефона">
+            <div class="avatar-upload">
+                <label for="profileAvatar">Изменить аватар:</label>
+                <input type="file" id="profileAvatar" accept="image/*" onchange="previewAvatar()">
+                <div id="avatarPreview" style="margin-top: 10px;">
+                    <img id="avatarImage" src="#" alt="Предварительный просмотр аватара" style="max-width: 100%; max-height: 100%; display: none; object-fit: cover; border-radius: 0%;">
+                </div>
+            </div>
+            <button type="button" onclick="saveProfileSettings()">Сохранить</button>
+            <button type="button" onclick="closeProfileSettings()">Закрыть</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Афиша. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        function showProfileInfo() {
+            var modal = document.getElementById("profileInfoModal");
+            modal.style.display = "block";
+        }
+
+        function closeProfileInfo() {
+            var modal = document.getElementById("profileInfoModal");
+            modal.style.display = "none";
+        }
+
+        function showProfileSettings() {
+            var modal = document.getElementById("profileSettingsModal");
+            modal.style.display = "block";
+        }
+
+        function closeProfileSettings() {
+            var modal = document.getElementById("profileSettingsModal");
+            modal.style.display = "none";
+        }
+
+        function saveProfileSettings() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var profileEmail = document.getElementById("profileEmail").value;
+            var profilePhone = document.getElementById("profilePhone").value;
+            
+            // Здесь можно добавить логику сохранения информации
+            console.log("Сохранение профиля:", firstName, lastName, profileEmail, profilePhone);
+            closeProfileSettings();
+        }
+    function closeAllModals() {
+            var modals = document.querySelectorAll('.profile-info-modal');
+            modals.forEach(function(modal) {
+                modal.style.display = 'none';
+            });
+        }
+
+        function showProfileInfo() {
+            closeAllModals();
+            var modal = document.getElementById("profileInfoModal");
+            modal.style.display = "block";
+        }
+
+        function showProfileSettings() {
+            closeAllModals();
+            var modal = document.getElementById("profileSettingsModal");
+            modal.style.display = "block";
+        }
+    function previewAvatar() {
+            var file = document.getElementById("profileAvatar").files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function() {
+                var avatarImage = document.getElementById("avatarImage");
+                avatarImage.src = reader.result;
+                avatarImage.style.display = "block";
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
