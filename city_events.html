@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>События города</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .event-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 50%;
+            margin: 100px auto;
+            padding: 40px;
+            border: 2px solid #000;
+            border-radius: 25px;
+            background-color: #f9f9f9;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+        }
+        .event-box img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+        .organizer, .date {
+            position: absolute;
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+        .organizer {
+            top: 20px;
+            left: 20px;
+        }
+        .date {
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="profile.html" class="profile-button">Профиль</a>
+        <h1>События города</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="city_events.html">События</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="events">
+            <h2>Предстоящие мероприятия</h2>
+            <div class="event-box">
+                <div class="organizer">Организатор - Администрация</div>
+                <!-- Добавляем изображение мероприятия -->
+                <img src="image/event_image.jpg.jpg" alt="Изображение мероприятия">
+                <p>
+                    Приглашаем всех жителей и гостей города посетить наше ежегодное культурное мероприятие, 
+                    которое включает множество интересных активностей, музыкальные выступления, 
+                    вкусную еду и незабываемую атмосферу. Приходите и окунитесь в мир развлечений!
+                </p>
+                <div class="date">27.02.2025</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Афиша. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
