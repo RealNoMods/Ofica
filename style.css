@@ -1,0 +1,111 @@
+/* Кнопка профиля */
+.profile-button {
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #000; /* Черная рамка вокруг кнопки */
+    border-radius: 25px; /* Овальная форма рамки */
+    text-decoration: none; /* Убирает подчеркивание */
+    color: #000; /* Цвет текста */
+    position: absolute;
+    top: 20px; /* Расстояние от верхнего края страницы */
+    right: 20px; /* Расстояние от правого края страницы */
+}
+
+.profile-button:hover {
+    background-color: #f0f0f0; /* Светло-серый фон при наведении */
+}
+/* Оформление */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Белый фон */
+    color: #000000; /* Черный цвет текста */
+}
+
+header {
+    background-color: #b71c1c; /* Красный фон для заголовка */
+    color: #ffffff; /* Белый цвет текста в заголовке */
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Белый цвет ссылок */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffccbc; /* Светло-красный цвет при наведении */
+}
+
+.profile-button {
+    background-color: #d32f2f; /* Красный фон кнопки */
+    color: #ffffff; /* Белый цвет текста кнопки */
+    border: 2px solid #b71c1c; /* Красная рамка кнопки */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.profile-button:hover {
+    background-color: #b71c1c; /* Темно-красный фон при наведении */
+    color: #ffffff; /* Белый цвет текста при наведении */
+}
+
+.event-box {
+    background-color: #ffcdd2; /* Светло-красный фон для мероприятия */
+    border: 2px solid #d32f2f; /* Красная рамка */
+    border-radius: 25px;
+    padding: 40px;
+    margin: 50px auto;
+    width: 60%;
+    text-align: center;
+    position: relative;
+    color: #000000; /* Черный цвет текста */
+}
+
+.event-box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.organizer, .date {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный цвет */
+    font-weight: bold;
+}
+
+.organizer {
+    top: 20px;
+    left: 20px;
+}
+
+.date {
+    bottom: 20px;
+    right: 20px;
+}
+
+footer {
+    background-color: #b71c1c; /* Красный фон подвала */
+    color: #ffffff; /* Белый цвет текста в подвале */
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
